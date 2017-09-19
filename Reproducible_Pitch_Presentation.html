@@ -104,9 +104,9 @@
 
 <p>The app developed for the first part of the assignment demo is avalilable at: <a href='https://data-aline.shinyapps.io/courseproject9/' title=''>https://data-aline.shinyapps.io/courseproject9/</a></p>
 
-<p>Source code for ui.R and server.R files are available on the GitHub repo:</p>
+<p>Source code for ui.R and server.R files are available on the GitHub repo: <a href='https://github.com/data-aline/9_data-products_cours-project' title=''>https://github.com/data-aline/9_data-products_cours-project</a></p>
 
-</article></slide><slide class=''><hgroup><h2>PM10 in Hamburg <em>Data set</em></h2></hgroup><article  id="pm10-in-hamburg-data-set">
+</article></slide><slide class=''><hgroup><h2>PM10 in Hamburg - <em>Data set</em> -</h2></hgroup><article  id="pm10-in-hamburg---data-set--">
 
 <p>This data product used a dataset, which is offered by the environmental authority in Hamburg. Since 2000 they have measured PM10 values at several weather stations.</p>
 
@@ -132,9 +132,7 @@ summary(pm10_melt)</pre>
 
 </article></slide><slide class=''><hgroup><h2>Data loading and preprocessing</h2></hgroup><article  id="data-loading-and-preprocessing">
 
-<p>pm10&lt;-read.csv(&quot;halm_PM10.csv&quot;,header=TRUE,sep=&quot;,&quot;) pm10_hh&lt;-pm10[c(4:215),]</p>
-
-<p>names(pm10_hh)[names(pm10_hh)==&quot;ï..Station&quot;]&lt;-&quot;Date&quot;</p>
+<p>pm10&lt;-read.csv(&quot;halm_PM10.csv&quot;,header=TRUE,sep=&quot;,&quot;) pm10_hh&lt;-pm10[c(4:215),] names(pm10_hh)[names(pm10_hh)==&quot;ï..Station&quot;]&lt;-&quot;Date&quot;</p>
 
 <p>pm10_hh\(Date&lt;-as.character(pm10_hh\)Date) pm10_hh\(Date&lt;-sub(&#39;\\.&#39;, &#39;-&#39;,pm10_hh\)Date) pm10_hh\(Date&lt;-dmy(paste(&quot;01-&quot;,pm10_hh\)Date,sep=&quot;&quot;))</p>
 
@@ -142,9 +140,12 @@ summary(pm10_melt)</pre>
 
 <p>pm10_melt\(value&lt;-as.numeric(pm10_melt\)value) good&lt;-complete.cases(pm10_melt) pm10_melt&lt;-pm10_melt[good,] write.csv(pm10_melt,file = &quot;pm10_melt.csv&quot;)</p>
 
-</article></slide><slide class=''><hgroup><h2>PM10 in Hamburg <em>Shiny app</em></h2></hgroup><article  id="pm10-in-hamburg-shiny-app">
+</article></slide><slide class=''><hgroup><h2>PM10 in Hamburg - <em>Shiny app</em> -</h2></hgroup><article  id="pm10-in-hamburg---shiny-app--">
 
-<p>In the included plotly visualization you can see either the time series with all weather stations or exclude some of them by clicking. In addition you can check the Limits. If you click on the checkbox &quot;Show/Hide Limit&quot; and move the mouse to the grafic, you will see the reult in the textbox.</p></article></slide>
+<ul>
+<li><p>In the included plotly visualization you can see either the time series with all weather stations or exclude some of them by clicking.</p></li>
+<li><p>In addition you can check the Limits. If you click on the checkbox &quot;Show/Hide Limit&quot; and move the mouse to the grafic, you will see the result in the textbox.</p></li>
+</ul></article></slide>
 
 
   <slide class="backdrop"></slide>

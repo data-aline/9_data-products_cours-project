@@ -1,0 +1,12 @@
+name: courseproject9
+title: courseProject9
+username:
+account: data-aline
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 216406
+bundleId: 987596
+url: https://data-aline.shinyapps.io/courseproject9/
+when: 1505821092.24675
+asMultiple: FALSE
+asStatic: FALSE

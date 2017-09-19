@@ -17,9 +17,10 @@ The app developed for the first part of the assignment demo is avalilable at:
 https://data-aline.shinyapps.io/courseproject9/
 
 Source code for ui.R and server.R files are available on the GitHub repo:
+https://github.com/data-aline/9_data-products_cours-project
 
 
-## PM10 in Hamburg *Data set* 
+## PM10 in Hamburg - *Data set* - 
 
 This data product used a dataset, which is offered by the environmental authority in Hamburg. 
 Since 2000 they have measured PM10 values at several weather stations. 
@@ -48,9 +49,9 @@ good<-complete.cases(pm10_melt)
 pm10_melt<-pm10_melt[good,]
 write.csv(pm10_melt,file = "pm10_melt.csv")
 
-## PM10 in Hamburg *Shiny app* 
+## PM10 in Hamburg - *Shiny app* - 
 - In the included plotly visualization you can see either the time series with all weather stations or exclude some of them by clicking.
 
-- In addition you can check the Limits. If you click on the checkbox "Show/Hide Limit" and move the mouse to the grafic, you will see the reult in the textbox.
+- In addition you can check the Limits. If you click on the checkbox "Show/Hide Limit" and move the mouse to the grafic, you will see the result in the textbox.
 
 
