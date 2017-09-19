@@ -1,0 +1,56 @@
+---
+title: "Reproducible Pitch Presentation"
+author: "Aline Gefeller"
+date: "19 September 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+This project was build for the course Developing Data Products as part of the Coursera Data Science Specialization. In this project I examined the **PM10 values in Hamburg**.
+
+The app developed for the first part of the assignment demo is avalilable at: 
+https://data-aline.shinyapps.io/courseproject9/
+
+Source code for ui.R and server.R files are available on the GitHub repo:
+
+
+## PM10 in Hamburg *Data set* 
+
+This data product used a dataset, which is offered by the environmental authority in Hamburg. 
+Since 2000 they have measured PM10 values at several weather stations. 
+
+```{r, echo = TRUE}
+ pm10_melt<-read.csv("pm10_melt.csv")
+summary(pm10_melt)
+```
+
+
+
+## Data loading and preprocessing
+
+pm10<-read.csv("halm_PM10.csv",header=TRUE,sep=",")
+pm10_hh<-pm10[c(4:215),]
+names(pm10_hh)[names(pm10_hh)=="ï..Station"]<-"Date"
+
+pm10_hh$Date<-as.character(pm10_hh$Date)
+pm10_hh$Date<-sub('\\.', '-',pm10_hh$Date)
+pm10_hh$Date<-dmy(paste("01-",pm10_hh$Date,sep=""))
+
+pm10_melt<-melt(pm10_hh,id="Date",measure.vars =c("Altona.Elbhang","Billbrook","Finkenwerder.West", "Flughafen" ,"Hafen.Kl..Grasbrook","Sternschanze", "Veddel","Wilhelmsburg" ))
+
+pm10_melt$value<-as.numeric(pm10_melt$value)
+good<-complete.cases(pm10_melt)
+pm10_melt<-pm10_melt[good,]
+write.csv(pm10_melt,file = "pm10_melt.csv")
+
+## PM10 in Hamburg *Shiny app* 
+- In the included plotly visualization you can see either the time series with all weather stations or exclude some of them by clicking.
+
+- In addition you can check the Limits. If you click on the checkbox "Show/Hide Limit" and move the mouse to the grafic, you will see the reult in the textbox.
+
+
